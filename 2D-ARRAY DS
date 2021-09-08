@@ -1,0 +1,31 @@
+import java.util.*;
+import java.math.*;
+public class hbj{
+    public static void main(String args[])
+    {
+        Scanner in=new Scanner(System.in);
+        int mat[][]=new int[6][6];
+        for(int i=0;i<6;i++)
+        {
+            for(int j=0;j<6;j++)
+            {
+                mat[i][j]=in.nextInt();
+                
+            }
+        }
+        hbj obj=new hbj();
+        int result=obj.findMaxSum(mat);
+        System.out.println(result);
+    }
+    int findMaxSum(int mat[][]){
+        int max_sum=-100;
+        for(int i=0;i<4;i++){
+            for(int j=0;j<4;j++)
+            {
+                int sum=mat[i][j]+mat[i][j+1]+mat[i][j+2]+mat[i+1][j+1]+mat[i+2][j]+mat[i+2][j+1]+mat[i+2][j+2];
+            max_sum=Math.max(max_sum,sum);
+            }
+        }
+        return max_sum;
+    }
+}
